@@ -202,17 +202,16 @@ h2 em, .split-copy h2 em { font-style: italic; color: var(--g600); }
 .principal-card h4 { font-family: var(--font-head); font-size: 1.15rem; margin-bottom: 10px; color: var(--g900); }
 .principal-card p { font-style: italic; color: var(--muted); margin-bottom: 12px; }
 .principal-card cite { font-style: normal; font-size: 0.85rem; font-weight: 600; color: var(--g700); }
-.media-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.tile {
-  aspect-ratio: 1 / 1.05; border-radius: 14px; position: relative; overflow: hidden;
-  display: flex; align-items: flex-end; padding: 14px; color: #fff;
-  font-size: 0.82rem; font-weight: 600;
+.about-photo {
+  border-radius: 20px; overflow: hidden; margin: 0 0 22px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); position: relative;
 }
-.tile::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,35,26,0.85), transparent 60%); }
-.tile span { position: relative; }
-.tile-1 { background: linear-gradient(150deg, #146a4e, #0a3527); }
-.tile-2 { background: linear-gradient(150deg, #b4832a, #6b4d14); }
-.tile-3 { background: linear-gradient(150deg, #1b8763, #0e4a37); }
+.about-photo img { width: 100%; height: 320px; object-fit: cover; display: block; }
+.about-photo figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 22px 16px;
+  background: linear-gradient(to top, rgba(6,35,26,0.85), transparent);
+  color: #fff; font-size: 0.88rem; font-weight: 600;
+}
 
 /* ── Feature cards ───────────────────────── */
 .cards-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -294,19 +293,21 @@ h2 em, .split-copy h2 em { font-style: italic; color: var(--g600); }
 .g-item {
   position: relative; border-radius: 16px; overflow: hidden; margin: 0;
   display: flex; align-items: flex-end; padding: 20px; color: #fff;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease; background: var(--g900);
 }
 .g-item:hover { transform: scale(1.02); }
-.g-item::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,35,26,0.88), transparent 55%); }
-.g-item figcaption { position: relative; font-weight: 600; font-size: 0.95rem; }
-.g-item:nth-child(1) { background: linear-gradient(150deg, #0e4a37, #06231a); }
-.g-item:nth-child(2) { background: linear-gradient(150deg, #146a4e, #0a3527); }
-.g-item:nth-child(3) { background: linear-gradient(150deg, #b4832a, #5c4211); }
-.g-item:nth-child(4) { background: linear-gradient(150deg, #1b8763, #0e4a37); }
-.g-item:nth-child(5) { background: linear-gradient(150deg, #0a3527, #146a4e); }
-.g-item:nth-child(6) { background: linear-gradient(150deg, #d9a441, #8a641f); }
+.g-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.g-item::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,35,26,0.88), transparent 55%); z-index: 1; }
+.g-item figcaption { position: relative; z-index: 2; font-weight: 600; font-size: 0.95rem; }
 .g-tall { grid-row: span 2; }
 .g-wide { grid-column: span 2; }
+
+/* ── Admissions banner figure ────────────── */
+.banner-figure {
+  margin: 0 0 32px; border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.banner-figure img { width: 100%; display: block; }
 
 /* ── Testimonials ────────────────────────── */
 .testimonial-wrap { max-width: 760px; margin: 0 auto; text-align: center; }
@@ -417,7 +418,7 @@ h2 em, .split-copy h2 em { font-style: italic; color: var(--g600); }
   .hero-ctas .btn { flex: 1 1 100%; }
   .topbar-right { display: none; }
   .topbar-inner { justify-content: center; }
-  .media-tiles { grid-template-columns: repeat(3, 1fr); }
+  .about-photo img { height: 240px; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .testimonial { padding: 32px 24px; }
   .testimonial p { font-size: 1.05rem; }
@@ -427,6 +428,5 @@ h2 em, .split-copy h2 em { font-style: italic; color: var(--g600); }
 @media (max-width: 400px) {
   .gallery { grid-template-columns: 1fr; grid-auto-rows: 180px; }
   .g-wide { grid-column: span 1; }
-  .media-tiles { grid-template-columns: 1fr 1fr; }
   .brand-text small { display: none; }
 }

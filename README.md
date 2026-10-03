@@ -23,6 +23,17 @@ for the client.
 Pure **HTML + CSS + JavaScript** — no build step, no dependencies.
 Deploy anywhere static sites work (Vercel, Netlify, GitHub Pages).
 
+## Images
+
+All images live in `images/`:
+
+- `campus.jpg` — college building (AI-generated placeholder)
+- `science-lab.jpg`, `computer-lab.jpg`, `library.jpg` — campus life (AI-generated placeholders)
+- `admissions-banner.jpg` — the college's real admissions flyer
+
+> Swap the AI placeholder photos with real campus photography before handing
+> the site to the client — just keep the same filenames.
+
 ## Run locally
 
 Just open `index.html` in a browser, or serve the folder:
